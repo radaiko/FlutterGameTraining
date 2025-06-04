@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_game_training/models/player.dart';
 import 'widgets/impeller_3d_widget.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Player.load();
   runApp(const MyApp());
 }
 
