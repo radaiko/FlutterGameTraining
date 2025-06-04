@@ -46,11 +46,13 @@ class Impeller3DGame extends FlameGame with HasCollisionDetection {
     _gameLogic.startNewGame();
 
     // Add a simple background
-    add(RectangleComponent(
-      size: size,
-      paint: Paint()..color = Colors.grey.shade800,
-      position: Vector2.zero(),
-    ));
+    add(
+      RectangleComponent(
+        size: size,
+        paint: Paint()..color = Colors.grey.shade800,
+        position: Vector2.zero(),
+      ),
+    );
 
     // Create 2D representations of cubes for now
     _createCubeComponents();
@@ -135,10 +137,7 @@ class CubeComponent extends RectangleComponent {
   void updateFromGameCube(GameCube cube) {
     gameCube = cube;
     paint.color = cube.isSelected ? Colors.orange : Colors.blue;
-    position = Vector2(
-      cube.position.x * 60.0,
-      cube.position.z * 60.0,
-    );
+    position = Vector2(cube.position.x * 60.0, cube.position.z * 60.0);
   }
 
   // TODO: Add tap handling for cube selection
